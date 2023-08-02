@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const ContactList = ({ setContacts, Contacts, Filtering }) => {
   let filteredContactos = '';
@@ -13,7 +12,7 @@ const ContactList = ({ setContacts, Contacts, Filtering }) => {
 
   if (Filtering) {
     filteredContactos = Contacts.filter(contacto => {
-      return contacto.nombre.toLowerCase().includes(Filtering.toLowerCase()); //para cuando no ingresamos ningun filtro, contacto.nombre incluye cualquier letra, si
+      return contacto.nombre.toLowerCase().includes(Filtering.toLowerCase());
     });
     console.log('entro a Filtering if:');
   } else {
@@ -23,10 +22,9 @@ const ContactList = ({ setContacts, Contacts, Filtering }) => {
 
   const deleteContact = index => {
     console.log('index', index);
-    const newContacts = Contacts;
+    const newContacts = [...Contacts]; // Crear una copia del array Contacts
     newContacts.splice(index, 1);
 
-    filteredContactos = newContacts;
     setContacts(newContacts);
   };
 

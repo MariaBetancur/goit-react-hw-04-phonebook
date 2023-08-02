@@ -22,10 +22,6 @@ const Form = () => {
     }
   }, [Contacts]);
 
-  useEffect(() => {
-    console.log('useEffectDidMount pendiente por agregar');
-  }, []); // Coloca un arreglo vacío para que se ejecute solo en el montaje del componente
-
   return (
     <Container>
       <Container2>
@@ -44,7 +40,6 @@ const Form = () => {
           setContacts={setContacts}
           Contacts={Contacts}
           Filtering={Filtering}
-          setName={setName}
         />
       </Container2>
     </Container>
